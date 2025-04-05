@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>About Us</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJL1Fek8dI5aL8zI5U8K2U5DUPz1KCUCkDRHRj5gF"
+          crossorigin="anonymous">
+</head>
+<body>
+<header th:replace="fragments/header :: header"></header>
+<form action="#" th:action="@{/wishlist}" th:object="${wishlistItem}" method="post">
+<div class="mb-3">
+    <label for="isbn" class="form-label">ISBN</label>
+    <input th:type="text" class="form-control" id="isbn" name="isbn" th:field="*{isbn}">
+    <small th:if="${#fields.hasErrors('isbn')}" style="color: red;" th:errors="*{isbn}"></small>
+    <br><br>
+    <label for="isbn" class="form-label">TITLE</label>
+    <input th:type="text" class="form-control" id="title" name="title" th:field="*{title}">
+    <small th:if="${#fields.hasErrors('title')}" style="color: red;" th:errors="*{title}"></small>
+    <br><br>
+    <input th:type="button" id="save" value="Save" th:action="submit">
+    <br><br>
+    <a href="/" th:href="@{/wishlist}">Return to wishlist</a>
+</div>
+</form>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYIzcLA8N+NtUVF0sA7MSxP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
