@@ -39,19 +39,4 @@ public class MemBookDao implements BookDao {
         }
         return new Book();
     }
-
-    @Override
-    public void add(Book entity) {
-
-    }
-
-    @Override
-    public void update(Book entity) {
-
-    }
-
-    @Override
-    public boolean remove(Book entity) {
-        return false;
-    }
 }
