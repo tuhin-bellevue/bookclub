@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head></head>
 <body>
 <header th:fragment="header">
@@ -26,6 +26,17 @@
                     </li>
                 </ul>
             </div>
+        </div>
+
+        <div class="nav navbar-nav ml-auto w-100 justify-contest-center">
+            <div sec:authorize="isAuthenticated()">
+                Loged in as <strong sec:authentication="name"></strong>
+            </div>
+            <ul class="nav navbar-nav ml-auto w-100 justify-contest-end">
+                <li class="nav-item float-end">
+                    <a href="/logout" th:href="@{/logout}" class="nav-link float-end">Logout</a>
+                </li>
+            </ul>
         </div>
     </nav>
 </header>
