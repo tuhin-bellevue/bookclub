@@ -47,19 +47,20 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authz -> authz
-                        .requestMatchers("/public/**","/css/**").permitAll()
+                        .requestMatchers("/public/**", "/css/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
-                        .loginPage("/login") // optional custom login page
+                        .loginPage("/login")
+                        .defaultSuccessUrl("/", true)
                         .permitAll()
                 )
                 .logout(logout -> logout
-                        .logoutSuccessUrl("/login?logout=true") // Redirect after logout
+                        .logoutSuccessUrl("/login?logout=true")
                         .invalidateHttpSession(true)
                         .permitAll()
                 )
-                .httpBasic(Customizer.withDefaults()); // for API/basic auth testing
+                .httpBasic(Customizer.withDefaults());
 
         return http.build();
     }
