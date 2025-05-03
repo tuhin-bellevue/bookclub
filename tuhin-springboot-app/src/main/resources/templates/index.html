@@ -24,19 +24,20 @@
         </div>
 
         <!-- Iterate Over Books -->
-        <div th:if="${not #lists.isEmpty(books)}">
-            <div th:each="book : ${books}">
-                <p class="card-text">
-                    <span th:text="${book.getTitle()}"></span>
-                    <br />
-                    <small class="text-muted">
-                        <em th:text="${book.getDescription()}"></em>
-                    </small>
-                </p>
+        <p class="card-text">
+            <span th:text="${book.getTitle()}"></span>
+            <br />
+            <small class="text-muted">
+                <em th:text="${book.getIsbn()}"></em>
+            </small>
+        </p>
 
-                <div class="btn-group">
-                    <a th:href="@{/{id}(id=${book.getIsbn()})}" class="btn btn-sm btn-outline-secondary">View</a>
-                </div>
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+                <a href="#" th:href="@{/id(id=${book.getIsbn()})}"
+                   class="btn btn-sm btn-outline-secondary">View</a>
+                <a href="#" th:href="${book.getInfoUrl()}"
+                   class="btn btn-sm btn-outline-secondary" target="_blank">Web Link</a>
             </div>
         </div>
 

@@ -1,7 +1,7 @@
 package com.bookclub.web;
 
 import com.bookclub.model.Book;
-import com.bookclub.service.impl.MemBookDao;
+import com.bookclub.service.impl.RestBookDao;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +14,7 @@ public class HomeController {
 
     @GetMapping
     public String showHome(Model model){
-        MemBookDao memBookDao = new MemBookDao();
+        RestBookDao memBookDao = new RestBookDao();
         List<Book> books = memBookDao.list();
         model.addAttribute("books", books);
         for (Book book: books){
@@ -28,7 +28,7 @@ public class HomeController {
         String isbn = id;
         System.out.println(id);
 
-        MemBookDao bookDao = new MemBookDao();
+        RestBookDao bookDao = new RestBookDao();
         Book book = bookDao.find(isbn);
 
         System.out.println(book.toString());

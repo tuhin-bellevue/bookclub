@@ -10,11 +10,27 @@
 
 <a href="/" th:href="@{/}">Return to books</a>
 
-<div>
+<!--<div>
     <strong>Authors:</strong>
     <ul th:each="author : ${book.getAuthors()}">
         <li th:text="${author}"></li>
     </ul>
+</div>-->
+
+<div class="card-subtitle text-muted">
+    Pages: <span th:text="${book.getNumOfPages()}"></span>
+</div>
+
+<br />
+
+<div class="card-text">
+    <p>
+        <strong>Description:</strong> <br /><span th:text="${book.getDescription()}"></span>
+    </p>
+    <strong>Web Link:</strong>
+    <p>
+        <a href="#" th:href="${book.getInfoUrl()}" th:text="${book.getInfoUrl()}"></a>
+    </p>
 </div>
 
 <footer th:replace="fragments/footer :: footer"></footer>
