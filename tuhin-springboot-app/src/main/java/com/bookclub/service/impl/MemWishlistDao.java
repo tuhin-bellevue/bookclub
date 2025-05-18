@@ -34,4 +34,24 @@ public class MemWishlistDao implements WishlistDao {
         }
         return new WishlistItem();
     }
+
+    @Override
+    public List<WishlistItem> list(String key) {
+        return null;
+    }
+
+    @Override
+    public void add(WishlistItem entity) {
+
+    }
+
+    @Override
+    public void update(WishlistItem entity) {
+
+    }
+
+    @Override
+    public void remove(String key) {
+
+    }
 }

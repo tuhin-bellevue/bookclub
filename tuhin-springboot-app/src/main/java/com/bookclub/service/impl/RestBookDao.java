@@ -64,8 +64,8 @@ public class RestBookDao implements BookDao {
 
     }
 
-    public List<Book> list() {
-        String isbnString = "ISBN:9780593099322,9780261102361,9780261102378,9780590302715,9780316769532";
+    public List<Book> list(String isbnString) {
+        //String isbnString = "ISBN:9780593099322,9780261102361,9780261102378,9780590302715,9780316769532";
 
         Object doc = getBooksDoc(isbnString);
 
@@ -84,6 +84,26 @@ public class RestBookDao implements BookDao {
         }
 
         return books;
+    }
+
+    @Override
+    public void add(Book entity) {
+
+    }
+
+    @Override
+    public void update(Book entity) {
+
+    }
+
+    @Override
+    public void remove(String key) {
+
+    }
+
+    @Override
+    public List<Book> list() {
+        return null;
     }
 
     @Override

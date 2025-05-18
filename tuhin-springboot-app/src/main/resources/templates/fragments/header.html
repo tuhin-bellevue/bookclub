@@ -41,6 +41,12 @@
                     <a href="/swagger-ui/index.html" class="nav-link" target="_blank">OpenAPI Specification</a>
                 </li>
 
+                <!-- Restrict the visibility of this link to only admin users. -->
+                <li class="nav-item" sec:authorize="hasRole('ADMIN')">
+                    <a href="/monthly-books" class="nav-link" th:href="@{/monthly-books}">Monthly Books</a>
+                </li>
+
+
             </ul>
         </div>
     </nav>
